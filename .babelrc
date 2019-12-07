@@ -9,6 +9,7 @@
     "@babel/proposal-optional-chaining",
     "@babel/proposal-export-default-from",
     "@babel/proposal-export-namespace-from",
+    "@babel/proposal-nullish-coalescing-operator",
     ["@babel/transform-runtime", {
       "corejs": 3,
       "helpers": false,
