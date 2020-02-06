@@ -14,8 +14,6 @@
     "@babel/plugin-proposal-class-properties": "latest",
     "@babel/plugin-proposal-export-default-from": "latest",
     "@babel/plugin-proposal-export-namespace-from": "latest",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "latest",
-    "@babel/plugin-proposal-optional-chaining": "latest",
     "@babel/plugin-proposal-pipeline-operator": "latest",
     "@babel/plugin-proposal-private-methods": "latest",
     "@babel/plugin-transform-runtime": "latest",
