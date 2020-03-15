@@ -26,6 +26,7 @@
     "html-webpack-plugin": "latest",
     "pixi.js": "latest",
     "raw-loader": "latest",
+    "terser-webpack-plugin": "latest",
     "webpack": "latest",
     "webpack-cli": "latest",
     "webpack-dev-server": "latest"

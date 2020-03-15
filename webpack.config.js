@@ -1,13 +1,13 @@
-const
-  os = require('os'),
-  path = require('path'),
-  webpack = require('webpack'),
-  HtmlWebpackPlugin = require('html-webpack-plugin')
+const os = require('os')
+const path = require('path')
+const webpack = require('webpack')
+const TerserPlugin = require('terser-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 
-const isProd = process.env.NODE_ENV === 'production'
+const prod = process.env.NODE_ENV === 'production'
 
-module.exports = {
+const conf = {
   entry: [
     './src/app.js'
   ],
@@ -30,7 +30,7 @@ module.exports = {
     contentBase: '.',
   },
 
-  devtool: isProd ? false : 'source-map',
+  devtool: prod ? false : 'source-map',
 
   stats: 'errors-only',
 
@@ -50,7 +50,8 @@ module.exports = {
 
   plugins: [
     new webpack.ProvidePlugin({
-      PIXI: 'pixi.js'
+      PIXI: 'pixi.js',
+      dragonBones: 'dragonbones.js'
     }),
 
     new HtmlWebpackPlugin({
@@ -64,5 +65,24 @@ module.exports = {
     })
   ],
 
-  mode: isProd ? 'production' : 'development'
+  mode: prod ? 'production' : 'development'
 }
+
+if (prod) {
+  conf.optimization = {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        parallel: 4,
+        extractComments: false,
+        terserOptions: {
+          output: {
+            comments: false
+          }
+        },
+      })
+    ]
+  }
+}
+
+module.exports = conf
