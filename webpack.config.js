@@ -5,7 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 
-const prod = process.env.NODE_ENV === 'production'
+const prod = process.argv.includes('-p')
 
 const conf = {
   entry: [
@@ -13,7 +13,7 @@ const conf = {
   ],
 
   output: {
-    path: path.resolve('www'),
+    path: path.resolve('dist'),
     filename: 'game.js'
   },
 
@@ -70,6 +70,11 @@ const conf = {
 
 if (prod) {
   conf.optimization = {
+    runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'all'
+    },
+
     minimize: true,
     minimizer: [
       new TerserPlugin({
