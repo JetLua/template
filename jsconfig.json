@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": false,
+    "paths": {
+      "@/*": ["./*"],
+      "~/*": ["src/*"]
+    },
+  },
+
+  "exclude": ["node_modules", "dist"],
+}

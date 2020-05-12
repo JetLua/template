@@ -19,7 +19,8 @@ const conf = {
 
   resolve: {
     alias: {
-      '@': path.resolve('.')
+      '@': path.resolve('.'),
+      '~': path.resolve('./src')
     }
   },
 
