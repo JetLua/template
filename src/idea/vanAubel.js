@@ -54,13 +54,15 @@ render()
 
 
 {
-  let target
+  const touch = {}
 
   renderer.plugins.interaction.on('pointerdown', ev => {
-    target = ev.target
+    const {target} = ev
     if (!target) return
+    touch[ev.id] = target
     target.down = {x: ev.x, y: ev.y}
   }).on('pointermove', ev => {
+    const target = touch[ev.id]
     if (!target) return
     const {down} = target
     if (!down) return
@@ -70,7 +72,7 @@ render()
     down.y = ev.y
     render()
   }).on('pointerup', ev => {
-    target = null
+    delete touch[ev.id]
   })
 }
 
