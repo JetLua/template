@@ -16,6 +16,7 @@ const renderer = new PIXI.Renderer({
   antialias: true,
   transparent: false,
   backgroundColor: 0x333333,
+
   width: width * pixelRatio,
   height: height * pixelRatio,
 })

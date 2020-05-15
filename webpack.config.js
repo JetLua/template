@@ -40,10 +40,15 @@ const conf = {
       {
         test: /\.js$/,
         use: ['babel-loader'],
+        exclude: /node_modules|cox/
+      },
+      {
+        test: /\.less$/,
+        use: ['css-loader', 'less-loader'],
         exclude: /node_modules/
       },
       {
-        test: /\.(vert|frag)$/,
+        test: /\.(vert|frag|html)$/,
         use: ['raw-loader']
       }
     ]
