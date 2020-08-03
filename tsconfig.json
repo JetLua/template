@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "es6",
+    "module": "commonjs",
+    "removeComments": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"],
+      "@/*": ["./*"]
+    },
+    "lib": [
+      "dom",
+      "esnext",
+    ],
+    "types": ["svelte"]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

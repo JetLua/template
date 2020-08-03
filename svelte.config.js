@@ -1,4 +1,4 @@
-const preprocess = require('svelte-preprocess');
+import preprocess from 'svelte-loader'
 
 module.exports = {
   preprocess: preprocess()

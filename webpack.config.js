@@ -6,21 +6,22 @@ const TerserPlugin = require('terser-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 
-const prod = process.env.NODE_ENV === 'production'
+const prod = process.argv.includes('-p')
 
 const conf = {
   entry: [
-    './src/app.js'
+    './src/app.ts'
   ],
 
   output: {
-    path: path.resolve('www'),
-    filename: 'game.js'
+    path: path.resolve('dist'),
+    filename: 'app.js'
   },
 
   resolve: {
     alias: {
-      '@': path.resolve('.')
+      '@': path.resolve('.'),
+      '~': path.resolve('./src')
     }
   },
 
@@ -59,11 +60,6 @@ const conf = {
   },
 
   plugins: [
-    new webpack.ProvidePlugin({
-      PIXI: 'pixi.js',
-      dragonBones: 'dragonbones.js'
-    }),
-
     new HtmlWebpackPlugin({
       hash: true,
       template: './src/layout.html',
