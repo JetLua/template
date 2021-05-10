@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "sourceMap": true,
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "noEmit": true,
+    "paths": {
+      "~/*": ["src/*"],
+      "@/*": ["./*"],
+    },
+    "lib": [
+      "dom",
+      "esnext",
+    ]
+  },
+  "include": ["src", "type"],
+  "exclude": ["node_modules", "dist"]
+}

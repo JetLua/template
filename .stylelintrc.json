@@ -1,0 +1,19 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "selector-list-comma-newline-after": null,
+    "selector-list-comma-space-after": "always-single-line",
+    "number-leading-zero": "never",
+    "no-empty-source": null,
+    "no-descending-specificity": null,
+    "rule-empty-line-before": ["always-multi-line", {
+      "ignore": ["first-nested", "after-comment"]
+    }],
+    "selector-pseudo-class-no-unknown": [true, {
+      "ignorePseudoClasses": ["global"]
+    }],
+    "selector-pseudo-element-no-unknown": [true, {
+      "ignorePseudoElements": ["global"]
+    }]
+  }
+}
