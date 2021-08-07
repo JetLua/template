@@ -1,99 +1,106 @@
-const os = require('os')
 const path = require('path')
 const webpack = require('webpack')
 const TerserPlugin = require('terser-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 
+module.exports = ({prod} = {}) => {
+  const conf = {
+    entry: ['./src/app.ts'],
 
-const prod = process.argv.includes('-p')
-
-const conf = {
-  entry: [
-    './src/app.js'
-  ],
-
-  output: {
-    path: path.resolve('dist'),
-    filename: 'game.js'
-  },
-
-  resolve: {
-    alias: {
-      '@': path.resolve('.'),
-      '~': path.resolve('./src')
-    }
-  },
-
-  devServer: {
-    hot: true,
-    host: '0.0.0.0',
-    stats: 'errors-only',
-    contentBase: '.',
-  },
-
-  devtool: prod ? false : 'source-map',
-
-  stats: 'errors-only',
-
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: ['babel-loader'],
-        exclude: /node_modules|cox/
-      },
-      {
-        test: /\.less$/,
-        use: ['css-loader', 'less-loader'],
-        exclude: /node_modules/
-      },
-      {
-        test: /\.(vert|frag|html)$/,
-        use: ['raw-loader']
-      }
-    ]
-  },
-
-  plugins: [
-    new webpack.ProvidePlugin({
-      PIXI: 'pixi.js',
-      dragonBones: 'dragonbones.js'
-    }),
-
-    new HtmlWebpackPlugin({
-      hash: true,
-      template: './src/layout.html',
-      filename: 'index.html',
-      inject: 'body',
-      minify: {
-        collapseWhitespace: true
-      }
-    })
-  ],
-
-  mode: prod ? 'production' : 'development'
-}
-
-if (prod) {
-  conf.optimization = {
-    runtimeChunk: 'single',
-    splitChunks: {
-      chunks: 'all'
+    experiments: {
+      topLevelAwait: true
     },
 
-    minimize: true,
-    minimizer: [
-      new TerserPlugin({
-        parallel: 4,
-        extractComments: false,
-        terserOptions: {
-          output: {
-            comments: false
-          }
-        },
-      })
-    ]
-  }
-}
+    output: {
+      filename: 'game.js',
+      path: path.resolve('dist')
+    },
 
-module.exports = conf
+    resolve: {
+      extensions: ['.js', '.ts'],
+      alias: {
+        '@': path.resolve('.'),
+        '~': path.resolve('./src'),
+      }
+    },
+
+
+    devServer: {
+      hot: true,
+      host: '0.0.0.0',
+      stats: 'errors-only',
+      contentBase: '.',
+    },
+
+    devtool: prod ? false : 'source-map',
+
+    stats: 'errors-only',
+
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true
+            }
+          },
+          exclude: /node_modules/
+        },
+        {
+          test: /\.less$/,
+          use: ['css-loader', 'less-loader'],
+          exclude: /node_modules/
+        },
+        {
+          test: /\.(vert|frag|txt)$/,
+          use: ['raw-loader'],
+          exclude: /node_modules/
+        }
+      ]
+    },
+
+    plugins: [
+      new HtmlWebpackPlugin({
+        hash: true,
+        template: './src/layout.html',
+        filename: 'index.html',
+        inject: 'body',
+        minify: {
+          collapseWhitespace: true
+        }
+      }),
+
+      new webpack.ProvidePlugin({
+        PIXI: 'pixi.js',
+      })
+    ],
+
+    mode: prod ? 'production' : 'development',
+  }
+
+  if (prod) {
+    conf.optimization = {
+      minimize: true,
+      minimizer: [
+        new TerserPlugin({
+          parallel: 4,
+          extractComments: false,
+          terserOptions: {
+            output: {
+              comments: false
+            }
+          },
+        })
+      ]
+    }
+  } else {
+    conf.plugins.push(
+      new ProgressBarPlugin()
+    )
+  }
+
+  return conf
+}

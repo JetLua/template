@@ -1,0 +1,28 @@
+{
+"frames": {
+	"gear.png": {
+		"frame": {"x":0, "y":451, "w":110, "h":110},
+		"spriteSourceSize": {"x":30,"y":30,"w":171,"h":171},
+		"sourceSize": {"w":171,"h":171},
+		"anchor": {"x":0.5,"y":0.5}
+	},
+	"tape.png": {
+		"frame": {"x":0, "y":0, "w":697, "h":447},
+		"spriteSourceSize": {"x":2,"y":4,"w":701,"h":457},
+		"sourceSize": {"w":701,"h":457},
+		"anchor": {"x":0.5,"y":0.5}
+	},
+	"watermelon.png": {
+		"frame": {"x":0, "y":565, "w":109, "h":112},
+		"spriteSourceSize": {"x":10,"y":8,"w":128,"h":128},
+		"sourceSize": {"w":128,"h":128},
+		"anchor": {"x":0.5,"y":0.5}
+	}
+
+},
+"meta": {
+	"image": "ui.png",
+	"size": {"w": 701, "h": 681},
+	"scale": "1"
+}
+}
