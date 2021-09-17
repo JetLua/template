@@ -45,6 +45,7 @@ module.exports = ({ env } = {}) => {
       alias: {
         '@': path.resolve('.'),
         '~': path.resolve('./src'),
+        'react-dom': '@hot-loader/react-dom'
       }
     },
 
@@ -176,14 +177,13 @@ module.exports = ({ env } = {}) => {
     })
 
     config.devServer = {
-      hot: true,
       host: '0.0.0.0',
-      contentBase: '.',
-      stats: 'errors-only',
-      historyApiFallback: true,
-      overlay: {
-        errors: true
-      }
+      static: {
+        directory: '.'
+      },
+      client: {
+        logging: 'error'
+      },
     }
   }
 
