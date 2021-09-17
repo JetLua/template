@@ -45,7 +45,6 @@ module.exports = ({ env } = {}) => {
       alias: {
         '@': path.resolve('.'),
         '~': path.resolve('./src'),
-        'react-dom': '@hot-loader/react-dom'
       }
     },
 
@@ -113,6 +112,7 @@ module.exports = ({ env } = {}) => {
       }),
 
       new webpack.DefinePlugin({
+        PROD: JSON.stringify(prod),
         ENV: JSON.stringify(env)
       })
     ],
@@ -177,7 +177,9 @@ module.exports = ({ env } = {}) => {
     })
 
     config.devServer = {
+      hot: true,
       host: '0.0.0.0',
+      liveReload: false, // for hmr
       static: {
         directory: '.'
       },

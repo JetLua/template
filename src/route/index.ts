@@ -1,5 +1,6 @@
 export default [
   {
-    path: ''
+    path: '/',
+    component: require('./entry').default
   }
 ]
