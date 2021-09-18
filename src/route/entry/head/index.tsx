@@ -3,6 +3,7 @@ import {SearchOutlined, BellOutlined, DownOutlined} from '@ant-design/icons'
 
 import {useReducer} from '~/util'
 import {context} from '~/util/context'
+import {Icon} from '~/module'
 
 import style from './style.less'
 import {Avatar, Badge, Dropdown, Menu} from 'antd'
@@ -26,7 +27,7 @@ export default React.memo(function() {
 
   return <section className={style.root}>
     <div className={style.left}>
-      <i className={style.logo}></i>
+      <Icon type="icon-yige" style={{fontSize: 80}}/>
       <i>{state.time}, {ctx.user.name}</i>
       <i>从未停止对美好事物的探索</i>
     </div>
@@ -34,7 +35,7 @@ export default React.memo(function() {
       <SearchOutlined style={{fontSize: 20}} className={style.search}/>
       <Badge count={state.count}><BellOutlined style={{fontSize: 20}}/></Badge>
       <i></i>
-      <Dropdown overlay={menu}><div className={style.avatar}><Avatar/><DownOutlined/></div></Dropdown>
+      <Dropdown overlay={menu}><div className={style.avatar}><Avatar/><Icon type="icon-xiala"/></div></Dropdown>
     </div>
   </section>
 })
