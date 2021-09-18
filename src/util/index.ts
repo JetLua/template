@@ -2,6 +2,8 @@ import merge from './merge'
 
 import type {Options} from './merge'
 
+export * as context from './context'
+
 export function useMount(cb: Function) {
   const ref = React.useRef<Function>()
   ref.current = cb

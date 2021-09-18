@@ -168,7 +168,7 @@ module.exports = ({ env } = {}) => {
     const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 
     config.plugins.push(
-      new webpack.HotModuleReplacementPlugin(),
+      // new webpack.HotModuleReplacementPlugin(),
       new ProgressBarPlugin(),
     )
 

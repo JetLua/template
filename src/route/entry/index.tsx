@@ -1,5 +1,10 @@
 import {useReducer} from '~/util'
 
+import Head from './head'
+import Notice from './notice'
+import Banner from './banner'
+import Workflow from './workflow'
+
 import style from './style.less'
 
 export default React.memo(function() {
@@ -11,8 +16,21 @@ export default React.memo(function() {
   })
 
   return <section className={style.root}>
-    <div>name: {state.info.name}</div>
-    <button onClick={() => dispatch({count: state.count + 1})}>count: {state.count}</button>
-    <button onClick={() => dispatch({info: {name: '123'}})}>change name</button>
+    <Head/>
+    <section className={style.main} style={{marginTop: "var(--gap)"}}>
+      <div className={style.left}>
+        <div className="d-flex">
+          <div>
+            <Banner/>
+            <Workflow style={{marginTop: "var(--gap)"}}/>
+          </div>
+          <Notice style={{marginLeft: "var(--gap)"}}/>
+        </div>
+      </div>
+
+      <div className={style.right}>
+
+      </div>
+    </section>
   </section>
 })
