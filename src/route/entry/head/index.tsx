@@ -21,7 +21,7 @@ export default React.memo(function() {
   const ctx = React.useContext(context.context)
 
   const menu = <Menu>
-    <Menu.Item>ok</Menu.Item>
+    <Menu.Item key="1">ok</Menu.Item>
   </Menu>
 
   return <section className={style.root}>
