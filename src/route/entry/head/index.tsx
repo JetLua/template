@@ -1,8 +1,7 @@
 import dayjs from 'dayjs'
 import {SearchOutlined, BellOutlined, DownOutlined} from '@ant-design/icons'
 
-import {useReducer} from '~/util'
-import {context} from '~/util/context'
+import {useReducer, context} from '~/util'
 import {Icon} from '~/module'
 
 import style from './style.less'
@@ -19,7 +18,7 @@ export default React.memo(function() {
     count: 3
   })
 
-  const ctx = React.useContext(context)
+  const ctx = React.useContext(context.context)
 
   const menu = <Menu>
     <Menu.Item>ok</Menu.Item>
