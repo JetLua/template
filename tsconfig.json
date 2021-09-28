@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "allowUmdGlobalAccess": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "noEmit": true,
+    "paths": {
+      "~/*": ["src/*"],
+      "@/*": ["./*"],
+    },
+    "lib": [
+      "dom",
+      "esnext",
+    ]
+  },
+  "include": ["src", "type"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,34 @@
+html, body, :global(.app) {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  &:not(:global(.app)) {
+    overflow: auto;
+  }
+}
+
+body::before {
+  content: "ok";
+  visibility: hidden;
+  font-family: hxz, monospace;
+  width: 0;
+  height: 0;
+  display: block;
+  overflow: hidden;
+}
+
+body::after {
+  content: "ok";
+  visibility: hidden;
+  font-family: hxz-light, monospace;
+  width: 0;
+  height: 0;
+  display: block;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}

@@ -1,0 +1,61 @@
+{
+  "name": "moon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve",
+    "build": "npm run clean && webpack --env prod && npm run copy",
+    "copy": "cp -Rf static dist",
+    "clean": "rm -fr dist"
+  },
+  "browserslist": [
+    "android >= 4",
+    "ios >= 8"
+  ],
+  "author": "JetLu",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "latest",
+    "@babel/plugin-transform-runtime": "latest",
+    "@babel/preset-env": "latest",
+    "@babel/preset-typescript": "^7.13.0",
+    "@babel/runtime-corejs3": "latest",
+    "@iro/interaction": "^1.2.10",
+    "autoprefixer": "latest",
+    "axios": "^0.21.4",
+    "babel-loader": "latest",
+    "core-js": "latest",
+    "css-loader": "latest",
+    "deepmerge": "^4.2.2",
+    "howler": "^2.2.3",
+    "html-webpack-plugin": "latest",
+    "less": "latest",
+    "less-loader": "latest",
+    "mini-css-extract-plugin": "latest",
+    "pixi.js": "^6.1.2",
+    "popmotion": "^9.4.0",
+    "postcss-loader": "latest",
+    "prismjs": "latest",
+    "progress-bar-webpack-plugin": "^2.1.0",
+    "raw-loader": "latest",
+    "style-loader": "latest",
+    "terser-webpack-plugin": "^5.1.1",
+    "typescript": "^4.4.3",
+    "vue": "next",
+    "vue-loader": "^16.5.0",
+    "vue-router": "^4.0.11",
+    "vue-style-loader": "latest",
+    "webpack": "latest",
+    "webpack-cli": "latest",
+    "webpack-dev-server": "latest"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.14.5",
+    "@types/howler": "^2.2.4",
+    "@vue/compiler-sfc": "^3.2.6",
+    "css-minimizer-webpack-plugin": "^3.0.2",
+    "stylelint-config-standard": "^22.0.0",
+    "url-loader": "^4.1.1"
+  }
+}
