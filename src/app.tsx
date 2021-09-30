@@ -5,7 +5,6 @@ import routes from './route'
 import {useReducer, context} from './util'
 
 import './style.less'
-import 'antd/dist/antd.min.css'
 
 !PROD && hot(App)
 

@@ -22,3 +22,29 @@ export function useReducer<T>(state: T, opts?: Options) {
     state
   )
 }
+
+function isObject(o: any) {
+  return Object.prototype.toString.call(o) === '[object Object]'
+}
+
+export function pureObject(o: any) {
+  if (!isObject(o)) return false
+
+  const ctor = o.constructor
+  if (ctor == null) return true
+
+  const prot = ctor.prototype
+  if (!isObject(prot)) return false
+
+  if (!Object.prototype.hasOwnProperty.call(prot, 'isPrototypeOf')) return false
+
+  return true
+}
+
+export function ok<T>(result: T): [T, null] {
+  return [result, null]
+}
+
+export function error(err: Error): [null, Error] {
+  return [null, err]
+}
