@@ -31,7 +31,7 @@ module.exports = ({ env } = {}) => {
 
     entry: ['./src/app.tsx'],
 
-    target: prod ? 'browserslist' : 'web',
+    // target: prod ? 'browserslist' : 'web',
 
     output: {
       path: path.resolve('dist'),
@@ -108,7 +108,7 @@ module.exports = ({ env } = {}) => {
         template: './src/layout.html',
         filename: 'index.html',
         inject: 'body',
-        minify: true
+        minify: true,
       }),
 
       new webpack.DefinePlugin({

@@ -3,6 +3,7 @@ import merge from './merge'
 import type {Options} from './merge'
 
 export * as context from './context'
+export {default as net} from './net'
 
 export function useMount(cb: Function) {
   const ref = React.useRef<Function>()

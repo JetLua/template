@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env env=dev",
+    "sw": "tsc -w src/sw.ts --skipLibCheck --isolatedModules --module esnext --moduleResolution node --outDir .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JetLu",
@@ -19,6 +20,7 @@
     "@babel/runtime-corejs3": "^7.14.0",
     "antd": "^4.16.13",
     "autoprefixer": "^10.2.5",
+    "axios": "^0.21.4",
     "babel-loader": "^8.2.2",
     "core-js": "^3.12.1",
     "css-loader": "^6.2.0",

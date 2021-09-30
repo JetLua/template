@@ -1,5 +1,5 @@
 import {Button} from 'antd'
-import {useReducer} from '~/util'
+import {net, useMount, useReducer} from '~/util'
 
 import style from './style.less'
 
@@ -9,6 +9,12 @@ export default React.memo(function() {
     info: {
       name: 'Jet'
     }
+  })
+
+  useMount(() => {
+    net.get('/fds').then((data) => {
+      console.log(data.data.ok)
+    })
   })
 
   return <section className={style.root}>
